@@ -3,11 +3,13 @@ The first image upload class I've ever made to make your file uploads easier.
 
 # Usage
 Make sure to create a new instance of the class. (You can put the object inside a session if you want.)
-The first parameter is the width for an image (Only needed if you need cropping)
-The second is the height (same as above)
-The third is the directory of the files to be put in. Remember to put a slash at the end!
-The forth is whether to crop the uploaded files or not.
+#### The first parameter is the width for an image (Only needed if you need cropping)
+#### The second is the height (same as above)
+#### The third is the directory of the files to be put in. Remember to put a slash at the end!
+#### The forth is whether to crop the uploaded files or not.
 
+# Example
+##### Initialize the class in a session.
 $_SESSION["imageuploader"] = new imageuploader(600, 480, "upload/", true);
 
 
