@@ -73,7 +73,7 @@ class imageuploader {
             /* Put all the files together in an array
              * if more than 1 file is uploaded.
              */
-            
+
             $this->checkdirectory();
             $this->post_name = $post_name;
             $this->all_files = $this->remaparray($post_picture);
@@ -290,12 +290,16 @@ class imageuploader {
      */
     private function remove_empty_array_entry() {
         $idx = -1;
+        $array = array();
         foreach ($this->all_files as $entry) {
             $idx++;
             if ($entry["name"] == "") {
                 unset($this->all_files[$idx]);
+            } else {
+                $array[] = $entry;
             }
         }
+        $this->all_files = $array;
     }
 
     /**
