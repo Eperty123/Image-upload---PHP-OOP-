@@ -5,8 +5,18 @@
  * Github page: https://github.com/Eperty123/Image-upload---PHP-OOP-.
  * Version: 1.0-b
  */
+
+
+/* ========================================================================================================
+ *  INCLUDE PLUGINS.
+  /* ========================================================================================================
+ */
+
 /* WideImage */
 require_once "wideimage/WideImage.php";
+
+
+/* Initialize the class. */
 
 class imageuploader {
     /* PUBLIC VARIABLES. */
@@ -25,8 +35,6 @@ class imageuploader {
     private $post_name;
     private $all_together;
     private $should_crop;
-
-    /* Initialize the class. */
 
     /**
      * Initialize the class with some kickstart arguments.
