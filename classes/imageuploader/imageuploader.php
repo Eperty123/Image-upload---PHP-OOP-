@@ -73,6 +73,8 @@ class imageuploader {
             /* Put all the files together in an array
              * if more than 1 file is uploaded.
              */
+            
+            $this->checkdirectory();
             $this->post_name = $post_name;
             $this->all_files = $this->remaparray($post_picture);
 
@@ -347,8 +349,6 @@ class imageuploader {
             if (!file_exists($this->ouputDirectory)) {
                 mkdir($this->ouputDirectory, 0777, true);
             }
-        } else {
-            die("Please set a directory for uploaded files!");
         }
     }
 
