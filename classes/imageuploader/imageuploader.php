@@ -3,10 +3,8 @@
 /**
  * Created by: Carlo De Leon. @ 2017.
  * Github page: https://github.com/Eperty123/Image-upload---PHP-OOP-.
- * Version: 1.0-b
+ * Version: 1.0
  */
-
-
 /* ========================================================================================================
  *  INCLUDE PLUGINS.
   /* ========================================================================================================
@@ -126,6 +124,21 @@ class imageuploader {
      */
     public function set_directory($directory) {
         $this->ouputDirectory = $directory;
+    }
+
+    /**
+     * Should images be scaled?
+     * @param type $value true or false.
+     * @param type $width The output width of the image.
+     * @param type $height The output height of the image.
+     */
+    public function should_scale($value, $width, $height) {
+        if (is_bool($value)) {
+            $this->should_crop = $value;
+            $this->OutputDimension = array($width, $height);
+        } else {
+            echo "Wrong value. It needs to be a boolean. (true/false)";
+        }
     }
 
     /**
