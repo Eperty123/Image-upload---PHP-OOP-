@@ -1,5 +1,5 @@
 # Image Upload (OOP) - PHP
-The first image upload class I've ever made to make your file uploads easier.
+ImageUploader is an object oriented class library for uploading files in PHP. It integrates WideImage for seamless scaling and cropping solutions.
 
 # Usage
 Make sure to create a new instance of the class. (You can put the object inside a session if you want.)
@@ -15,6 +15,10 @@ Make sure to create a new instance of the class. (You can put the object inside 
 ##### should_scale(true, width, height) - Should images be scaled?
 ##### get_all_images() - Return all uploaded images as an array.
 ##### find_and_get(3) - Find and return an image based on the number.
+
+# Requirememts
+* PHP 5.6 and up.
+
 
 # Example
 ##### Initialize the class in a session.
@@ -60,3 +64,6 @@ $picuploader = $_SESSION["imageuploader"];
         </div>
     </body>
 </html>
+
+# Additionals
+This class includes WideImage which is an image manipulation system for PHP. The developer's site can be found her: http://wideimage.sourceforge.net/.
