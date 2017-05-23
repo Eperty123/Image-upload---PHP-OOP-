@@ -8,6 +8,10 @@ Make sure to create a new instance of the class. (You can put the object inside 
 #### The third is the directory of the files to be put in. Remember to put a slash at the end!
 #### The forth is whether to crop the uploaded files or not.
 
+## Functions
+##### setdirectory(string) - Sets the output directory of where the uploaded files should be placed in. Check the example below for the syntax.
+##### upload(string, array) - Uploads all the files. Check the example below for the syntax.
+
 # Example
 ##### Initialize the class in a session.
 $_SESSION["imageuploader"] = new imageuploader(600, 480, "upload/", true);
