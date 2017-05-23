@@ -7,6 +7,7 @@ Make sure to create a new instance of the class. (You can put the object inside 
 #### The second is the height (same as above)
 #### The third is the directory of the files to be put in. Remember to put a slash at the end!
 #### The forth is whether to crop the uploaded files or not.
+See the example below.
 
 ## Functions
 ##### setdirectory("example/") - Sets the output directory of where the uploaded files should be placed in.
