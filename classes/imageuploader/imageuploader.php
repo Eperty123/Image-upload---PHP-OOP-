@@ -355,5 +355,4 @@ class imageuploader {
             }
         }
     }
-
 }
