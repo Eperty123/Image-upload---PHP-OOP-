@@ -34,7 +34,7 @@ class imageuploader {
      * @param type $outputdirectory The output directory to put uploaded files in.
      * @param type $crop Should images be cropped? (Default: false)
      */
-    public function __construct($width, $height, $outputdirectory = "", $crop = false) {
+    public function __construct($width = "", $height = "", $outputdirectory = "", $crop = false) {
 
         $this->inputFile;
         $this->OutputDimension;
