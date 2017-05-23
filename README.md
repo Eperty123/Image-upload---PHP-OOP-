@@ -9,8 +9,10 @@ Make sure to create a new instance of the class. (You can put the object inside 
 #### The forth is whether to crop the uploaded files or not.
 
 ## Functions
-##### setdirectory(string) - Sets the output directory of where the uploaded files should be placed in. Check the example below for the syntax.
-##### upload(string, array) - Uploads all the files. Check the example below for the syntax.
+##### setdirectory("example/") - Sets the output directory of where the uploaded files should be placed in.
+##### upload("name", $_FILES["name"]) - Uploads all the files. Check the example below for the syntax.
+##### set_resolution(width<, height) - Sets the output resolution of each uploaded files.
+##### should_scale(true, width, height) - Should images be scaled?
 
 # Example
 ##### Initialize the class in a session.
