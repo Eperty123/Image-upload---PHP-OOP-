@@ -3,6 +3,7 @@
 /**
  * Created by: Carlo De Leon. @ 2017.
  * Github page: https://github.com/Eperty123/Image-upload---PHP-OOP-.
+ * Version: 1.0-b
  */
 /* WideImage */
 require_once "wideimage/WideImage.php";
@@ -233,9 +234,6 @@ class imageuploader {
      * Put everything together.
      */
     private function put_all_together() {
-        $orig_names = $this->originalName;
-        $tmp_names = $this->tempName;
-        $extensions = $this->extensionName;
         $res = $this->inputDimension;
         $idx = -1;
         if (count($this->all_files != 0)) {
