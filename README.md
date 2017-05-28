@@ -32,6 +32,7 @@ require_once "classes/imageuploader/imageuploader.php";
 $_SESSION["imageuploader"] = new imageuploader(600, 480, "upload/");
 $picuploader = $_SESSION["imageuploader"];
 ?>
+
 <!doctype html>
 <html>
     <head>
