@@ -95,8 +95,6 @@ class imageuploader {
 
                     $this->put_all_together();
                 }
-            } else {
-                echo "<p>Nothing to upload!</p>";
             }
         } else {
             echo "<p>Failed to upload.</p>";
