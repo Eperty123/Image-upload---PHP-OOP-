@@ -2,12 +2,14 @@
 
 /**
  * @category   PHP
- * @copyright  Copyright @ Carlo De Leon (http://carlodeleon.net)
+ * @copyright  Copyright @ 2017 Carlo De Leon (http://carlodeleon.net)
  * @license    GPLv2 License
  * @version    1.1-1
  * @link       https://github.com/Eperty123/Image-upload---PHP-OOP-.
  * @since      Version 1.0
  */
+
+
 /* WideImage */
 require_once "wideimage/WideImage.php";
 
@@ -75,30 +77,26 @@ class imageuploader {
 
             $this->checkdirectory();
             $this->post_name = $post_name;
-            if (!is_array($post_picture)) {
-                $this->all_files = $this->remaparray($post_picture);
+            $this->all_files = $this->remaparray($post_picture);
 
-                /* Remove empty array entries if any. */
-                $this->remove_empty_array_entry();
+            /* Remove empty array entries if any. */
+            $this->remove_empty_array_entry();
 
 
-                /* Check the file array if it's empty.
-                 * If not, proceed.
-                 */
-                if (!empty($this->all_files)) {
-                    if ($this->all_files[0]["size"] > 0) {
+            /* Check if the file is array.
+             * If not, proceed.
+             */
+            if (!empty($this->all_files)) {
+                if ($this->all_files[0]["size"] > 0) {
 
-                        /* Call other useful functions. */
-                        $this->getimageresolution();
-                        $this->getoriginalimagename();
-                        $this->gettempname();
-                        $this->getextensionname();
+                    /* Call other useful functions. */
+                    $this->getimageresolution();
+                    $this->getoriginalimagename();
+                    $this->gettempname();
+                    $this->getextensionname();
 
-                        $this->put_all_together();
-                    }
+                    $this->put_all_together();
                 }
-            } else {
-                die("<b>Warning:</b> The input type name is not an array. Please make it an array to proceed.");
             }
         } else {
             echo "<p>Failed to upload.</p>";
