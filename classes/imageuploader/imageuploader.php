@@ -75,26 +75,30 @@ class imageuploader {
 
             $this->checkdirectory();
             $this->post_name = $post_name;
-            $this->all_files = $this->remaparray($post_picture);
+            if (!is_array($post_picture)) {
+                $this->all_files = $this->remaparray($post_picture);
 
-            /* Remove empty array entries if any. */
-            $this->remove_empty_array_entry();
+                /* Remove empty array entries if any. */
+                $this->remove_empty_array_entry();
 
 
-            /* Check the file array if it's empty.
-             * If not, proceed.
-             */
-            if (!empty($this->all_files)) {
-                if ($this->all_files[0]["size"] > 0) {
+                /* Check the file array if it's empty.
+                 * If not, proceed.
+                 */
+                if (!empty($this->all_files)) {
+                    if ($this->all_files[0]["size"] > 0) {
 
-                    /* Call other useful functions. */
-                    $this->getimageresolution();
-                    $this->getoriginalimagename();
-                    $this->gettempname();
-                    $this->getextensionname();
+                        /* Call other useful functions. */
+                        $this->getimageresolution();
+                        $this->getoriginalimagename();
+                        $this->gettempname();
+                        $this->getextensionname();
 
-                    $this->put_all_together();
+                        $this->put_all_together();
+                    }
                 }
+            } else {
+                die("<b>Warning:</b> The input type name is not an array. Please make it an array to proceed.");
             }
         } else {
             echo "<p>Failed to upload.</p>";
