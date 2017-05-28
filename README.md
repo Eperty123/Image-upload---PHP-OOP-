@@ -16,6 +16,7 @@ See the example below.
 ##### should_scale(true, width, height) - Should images be scaled?
 ##### get_all_images() - Return all uploaded images as an array.
 ##### get_image(3) - Find and return an image based on the number.
+##### has_uploaded - Checks if the upload processs is done.
 
 # Requirememts
 * PHP 5.6 and up.
@@ -26,13 +27,15 @@ See the example below.
 $_SESSION["imageuploader"] = new imageuploader(600, 480, "upload/", true);
 
 
+***
+
 <?php
 session_start();
 require_once "classes/imageuploader/imageuploader.php";
-$_SESSION["imageuploader"] = new imageuploader(600, 480, "upload/");
+$_SESSION["imageuploader"] = new imageuploader();
 $picuploader = $_SESSION["imageuploader"];
+$picuploader->set_directory("upload/");
 ?>
-
 <!doctype html>
 <html>
     <head>
@@ -49,9 +52,15 @@ $picuploader = $_SESSION["imageuploader"];
                     $image = $_FILES["picture"];
                     $picuploader->upload("picture", $_FILES["picture"]);
                     $picuploader->dodebug();
-                    $array = $picuploader->get_all_images();
-                    foreach ($array as $image) {
-                        echo sprintf("<div class=\"center\"><img src=\"upload/%s\"></div>", $image["name"]);
+
+                    // Check if all files have been uploaded.
+                    if ($picuploader->has_uploaded()) {
+                        $array = $picuploader->get_all_images();
+                        foreach ($array as $image) {
+                            echo sprintf("<div class=\"center\"><img src=\"upload/%s\"></div>", $image["name"]);
+                        }
+                    } else {
+                        echo "Nothing uploaded!";
                     }
                 }
             }
@@ -66,6 +75,10 @@ $picuploader = $_SESSION["imageuploader"];
         </div>
     </body>
 </html>
+
+
+***
+
 
 # Additionals
 This class includes WideImage which is an image manipulation system for PHP. The developer's site can be found her: http://wideimage.sourceforge.net/.
