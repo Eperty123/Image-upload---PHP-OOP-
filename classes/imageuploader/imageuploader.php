@@ -4,12 +4,10 @@
  * @category   PHP
  * @copyright  Copyright @ Carlo De Leon (http://carlodeleon.net)
  * @license    GPLv2 License
- * @version    1.1
+ * @version    1.1-1
  * @link       https://github.com/Eperty123/Image-upload---PHP-OOP-.
  * @since      Version 1.0
  */
-
-
 /* WideImage */
 require_once "wideimage/WideImage.php";
 
@@ -82,15 +80,23 @@ class imageuploader {
             /* Remove empty array entries if any. */
             $this->remove_empty_array_entry();
 
-            if ($this->all_files[0]["size"] > 0) {
 
-                /* Call other useful functions. */
-                $this->getimageresolution();
-                $this->getoriginalimagename();
-                $this->gettempname();
-                $this->getextensionname();
+            /* Check the file array if it's empty.
+             * If not, proceed.
+             */
+            if (!empty($this->all_files)) {
+                if ($this->all_files[0]["size"] > 0) {
 
-                $this->put_all_together();
+                    /* Call other useful functions. */
+                    $this->getimageresolution();
+                    $this->getoriginalimagename();
+                    $this->gettempname();
+                    $this->getextensionname();
+
+                    $this->put_all_together();
+                }
+            } else {
+                echo "<p>Nothing to upload!</p>";
             }
         } else {
             echo "<p>Failed to upload.</p>";
