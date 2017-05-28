@@ -15,7 +15,7 @@ See the example below.
 ##### set_resolution(640, 480) - Sets the output resolution of each uploaded files.
 ##### should_scale(true, width, height) - Should images be scaled?
 ##### get_all_images() - Return all uploaded images as an array.
-##### find_and_get(3) - Find and return an image based on the number.
+##### get_image(3) - Find and return an image based on the number.
 
 # Requirememts
 * PHP 5.6 and up.
