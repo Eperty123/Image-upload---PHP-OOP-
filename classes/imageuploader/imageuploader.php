@@ -10,13 +10,6 @@
  */
 
 
-
-
-/* ========================================================================================================
- *  INCLUDE PLUGINS.
-  /* ========================================================================================================
- */
-
 /* WideImage */
 require_once "wideimage/WideImage.php";
 
@@ -40,6 +33,7 @@ class imageuploader {
     private $post_name;
     private $all_together;
     private $should_crop;
+    private $uploaded;
 
     /**
      * Initialize the class with some kickstart arguments.
@@ -168,6 +162,14 @@ class imageuploader {
             $image_number = 0;
         }
         return $this->all_together[$image_number];
+    }
+
+    /**
+     * Gets the current state of the upload process.
+     * @return type bool
+     */
+    public function has_uploaded() {
+        return $this->uploaded;
     }
 
     /* ========================================================================================================
@@ -318,6 +320,10 @@ class imageuploader {
         $input = WideImage::load($file_in);
         $done = $input->resize($this->OutputDimension[0], $this->OutputDimension[1], "inside");
         $done->saveToFile($this->ouputDirectory . $file_out);
+
+        if (count($this->all_together) == count($this->all_files)) {
+            $this->uploaded = true;
+        }
     }
 
     /**
@@ -328,7 +334,9 @@ class imageuploader {
     private function put_to_output_folder($file_in, $file_out) {
         if (!$this->should_crop) {
             if (move_uploaded_file($file_in, $this->ouputDirectory . $file_out)) {
-                
+                if (count($this->all_together) == count($this->all_files)) {
+                    $this->uploaded = true;
+                }
             } else {
                 die("The uploaded file could not be moved!");
             }
