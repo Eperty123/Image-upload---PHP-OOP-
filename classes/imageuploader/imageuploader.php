@@ -1,10 +1,17 @@
 <?php
 
 /**
- * Created by: Carlo De Leon. @ 2017.
- * Github page: https://github.com/Eperty123/Image-upload---PHP-OOP-.
- * Version: 1.0
+ * @category   PHP
+ * @copyright  Copyright @ Carlo De Leon (http://carlodeleon.net)
+ * @license    GPLv2 License
+ * @version    1.1
+ * @link       https://github.com/Eperty123/Image-upload---PHP-OOP-.
+ * @since      Version 1.0
  */
+
+
+
+
 /* ========================================================================================================
  *  INCLUDE PLUGINS.
   /* ========================================================================================================
@@ -156,7 +163,7 @@ class imageuploader {
      * @param type $image_number The image number.
      * @return type array
      */
-    public function find_and_get($image_number = 0) {
+    public function get_image($image_number = 0) {
         if (count($this->all_together) == 1) {
             $image_number = 0;
         }
@@ -355,4 +362,5 @@ class imageuploader {
             }
         }
     }
+
 }
