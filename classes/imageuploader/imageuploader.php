@@ -83,7 +83,7 @@ class imageuploader {
             $this->remove_empty_array_entry();
 
 
-            /* Check if the file is array.
+            /* Check if the file array is empty.
              * If not, proceed.
              */
             if (!empty($this->all_files)) {
@@ -259,13 +259,18 @@ class imageuploader {
         $file_count = count($array['name']);
         $file_keys = array_keys($array);
 
-        for ($i = 0; $i < $file_count; $i++) {
-            foreach ($file_keys as $key) {
-                $file_array[$i][$key] = $array[$key][$i];
+        if (is_array($file_keys) && is_array($file_count)) {
+            for ($i = 0; $i < $file_count; $i++) {
+                foreach ($file_keys as $key) {
+                    $file_array[$i][$key] = $array[$key][$i];
+                }
             }
-        }
 
-        return $file_array;
+
+            return $file_array;
+        } else {
+            die("<b>Warning:</b> The input type name is not an array. Please make sure it's an array!");
+        }
     }
 
     /**
@@ -306,15 +311,17 @@ class imageuploader {
     private function remove_empty_array_entry() {
         $idx = -1;
         $array = array();
-        foreach ($this->all_files as $entry) {
-            $idx++;
-            if ($entry["name"] == "") {
-                unset($this->all_files[$idx]);
-            } else {
-                $array[] = $entry;
+        if (is_array($this->all_files)) {
+            foreach ($this->all_files as $entry) {
+                $idx++;
+                if ($entry["name"] == "") {
+                    unset($this->all_files[$idx]);
+                } else {
+                    $array[] = $entry;
+                }
             }
+            $this->all_files = $array;
         }
-        $this->all_files = $array;
     }
 
     /**
