@@ -9,7 +9,9 @@ Make sure to create a new instance of the class. (You can put the object inside 
 #### The forth is whether to crop the uploaded files or not.
 
 ## NOTE:
-The name of the input type file must be an array (must have "[]" wtihout the quotes). 
+The name of the input type file must be an array (must have "[]" wtihout the quotes). It may not report it!
+
+ImageUploader <b><i>does not</i></b> support multi dimensional arrays just yet. It may do in the near future but for now it doesn't.
 
 See the example below.
 
@@ -86,3 +88,5 @@ $picuploader->set_directory("upload/");
 
 # Additionals
 This class includes WideImage which is an image manipulation system for PHP. The developer's site can be found her: http://wideimage.sourceforge.net/.
+
+This class library is dedicated to my course and fellow classmates.
